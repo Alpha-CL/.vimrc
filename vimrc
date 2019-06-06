@@ -161,7 +161,7 @@ Plugin 'shougo/neocomplete.vim'
 
 
 " 语法补全
-Plugin 'valloric/youcompleteme'
+" Plugin 'valloric/youcompleteme'
 
 
 " 快速注释
@@ -1025,6 +1025,9 @@ call pathogen#helptags()
 " ----------------------- Vim Plugins Setting End ！----------------------------
 
 
+execute pathogen#infect()
+call pathogen#helptags()
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -1260,5 +1263,3 @@ set viminfo     ='100,n$HOME/.vim/files/info/viminfo"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-execute pathogen#infect()
-call pathogen#helptags()
