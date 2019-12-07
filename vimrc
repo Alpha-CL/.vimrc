@@ -209,13 +209,21 @@ Plugin 'junegunn/vim-easy-align'
 " ----------------------- CSS Plugins Start ！ --------------------------------
 
 
+" CSS 语法高亮
+Plugin 'hail2u/vim-css3-syntax'
+
+
+" 打括号补全
+Plugin 'Raimondi/delimitMate'
+
+
 " HTML5 / css3 快速标签生成
 " 已安装 / 待学习
 " <c-y> 为生成快捷键
 Plugin 'mattn/emmet-vim'
 
 
-" 为 css 添加语法突出显示、缩进和自动完成  
+" 为 css 添加语法突出显示、缩进和自动完成
 Plugin 'groenewege/vim-less'
 
 
@@ -341,7 +349,7 @@ let g:airline#extensions#whitespace#enabled=0
 
 " 是否打开tabline
 " 打开后，tabline和tmuxline都可以得到增强
-let g:airline#extensions#tabline#enabled = 1 
+let g:airline#extensions#tabline#enabled = 1
 
 
 
@@ -441,7 +449,7 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " near tree & tagbar setting start --------------------------------------------
 
 
-" NerdTree 
+" NerdTree
 
 " 去除第一行的帮助提示
 let NERDTreeMinimalUI=1
@@ -552,14 +560,14 @@ let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 " 注释的时候自动加个空格, 强迫症必配
 let g:NERDSpaceDelims=1
 
-" \ca在可选的注释方式之间切换，比如C/C++ 的块注释/* */和行注释//  
+" \ca在可选的注释方式之间切换，比如C/C++ 的块注释/* */和行注释//
 " \cc注释当前行
 " \c<space> 切换注释/非注释状态
 " \cs 以”性感”的方式注释
 " \cA 在当前行尾添加注释符，并进入Insert模式
 " \cu 取消注释
 " \c$ 从光标开始到行尾注释  ，这个要说说因为c$也是从光标到行尾的快捷键，这个按过逗号（，）要快一点按c$
-" 2\cc 光标以下count行添加注释 
+" 2\cc 光标以下count行添加注释
 " 2\cu 光标以下count行取消注释
 " 2\cm:光标以下count行添加块注释(2,cm)
 
@@ -588,23 +596,23 @@ let g:bookmark_location_list = 1
 
 " 默认按键映射
 
-" nmap <Leader> <Leader> <Plug> BookmarkToggle 
+" nmap <Leader> <Leader> <Plug> BookmarkToggle
 
 " nmap <Leader> i <Plug> BookmarkAnnotate
- 
-" nmap <Leader> a <Plug> BookmarkShowAll 
- 
+
+" nmap <Leader> a <Plug> BookmarkShowAll
+
 " nmap <Leader> j <Plug> BookmarkNext
- 
+
 " nmap <Leader> k <Plug> BookmarkPrev
- 
+
 " nmap <Leader> c <Plug> BookmarkClear
- 
+
 " nmap <Leader> x <Plug> BookmarkClearAll
 
 
 " “这些也适用于[count]前缀
-" nmap <Leader> kk <Plug> BookmarkMoveUp 
+" nmap <Leader> kk <Plug> BookmarkMoveUp
 
 " nmap <Leader> jj <Plug> BookmarkMoveDown
 
@@ -712,10 +720,10 @@ nmap <Leader>d :ALEDetail<CR>
 
 
 
-" syntastic setting start ------------------------------------------------------ 
+" syntastic setting start ------------------------------------------------------
 
 
-" 设置 error 和 warning 的标志 
+" 设置 error 和 warning 的标志
 let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='►'
@@ -781,7 +789,7 @@ function! ToggleErrors()
 endfunction
 
 
-" syntastic setting end ------------------------------------------------------- 
+" syntastic setting end -------------------------------------------------------
 
 
 
@@ -805,7 +813,7 @@ let g:indentLine_char = '¦'
 " multiple cursors setting start ----------------------------------------------
 
 
-let g:multi_cursor_use_default_mapping=0
+" let g:multi_cursor_use_default_mapping=0
 
 " Default mapping
 let g:multi_cursor_start_word_key      = '<C-n>'
@@ -816,6 +824,10 @@ let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
+
+if !has('gui_running')
+  map "in Insert mode, type Ctrl+v Alt+n here" <A-n>
+endif
 
 
 " multiple cursors setting start ----------------------------------------------
@@ -859,7 +871,7 @@ let g:multi_cursor_quit_key            = '<Esc>'
 
 " s   ： 给选中内容添加包围
 " S   ： 选中内容添加包围并独成一行
- 
+
 " insert mode
 
 
@@ -948,7 +960,7 @@ let g:closetag_close_shortcut = '<leader>>'
 
 " <table>|</table>
 " 现在，如果>再次按下，内容将是：
- 
+
 " <table>
 "     |
 " </table>
@@ -1052,7 +1064,7 @@ set nocompatible           		" 不与 Vi 兼容（采用 Vim 自己的操作命�
 
 
 syntax on                  		" 语法高亮
-set clipboard+=unnamed                  " 共享剪切板 
+set clipboard=unnamed                   " 共享剪切板
 
 set mouse=a                             " 激活鼠标
 set scrolloff=10                        " 在光标接近底端或顶端时，自动下滚或上滚
@@ -1079,7 +1091,7 @@ filetype plugin indent on  		" 根据检测到的文件类型加载插件
 
 
 
-set helplang=cn                         " 设置帮助信息 
+set helplang=cn                         " 设置帮助信息
 set ruler                               " 显示标尺，就是在右下角显示光标位置
 
 
@@ -1093,7 +1105,7 @@ set ruler                               " 显示标尺，就是在右下角显�
 
 
 
-set cmdheight=2                         " 设置命令行的高度  
+set cmdheight=2                         " 设置命令行的高度
 set textwidth=80			" 一行显示多少个字符
 set wrap				" 自动折行,太长的行分成几行显示
 
@@ -1104,9 +1116,9 @@ set sidescrolloff=15			" 水平滚动时，光标距离行首或行尾的位置
 
 
 
-set browsedir=buffer                    " 设定文件浏览器目录为当前目录 
-set autochdir                           " 自动切换当前目录为当前文件所在的目录 
-set autoread                            " 自动重新加载外部修改内容 
+set browsedir=buffer                    " 设定文件浏览器目录为当前目录
+set autochdir                           " 自动切换当前目录为当前文件所在的目录
+set autoread                            " 自动重新加载外部修改内容
 
 
 set noerrorbells			" 出错时，不要发出响声
@@ -1131,8 +1143,20 @@ set hlsearch             		" 保持匹配突出显示
 
 
 set ignorecase                          " 搜索时大小写不敏感
+set smartcase                           " 如果有一个大写字母，切换大小写敏感查找
 set wildmenu                            " vim 自身命令行模式智能补全
 
+
+" 当光标一段时间保持不动了，就禁用高亮
+autocmd cursorhold * set nohlsearch
+
+
+" 当输入查找命令时，再启用高亮
+noremap n :set hlsearch<cr>n
+noremap N :set hlsearch<cr>N
+noremap / :set hlsearch<cr>/
+noremap ? :set hlsearch<cr>?
+noremap * *:set hlsearch<cr>
 
 
 " ----------------------- Search Setting End ！------------------------
@@ -1144,8 +1168,8 @@ set wildmenu                            " vim 自身命令行模式智能补全
 
 
 
-set number                   		" 显示行号 
-set relativenumber			" 显示光标当前行的行号和相对行号
+set number                   		" 显示行号
+" set relativenumber			" 显示相对行号
 
 
 
